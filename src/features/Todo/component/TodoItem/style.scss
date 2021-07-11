@@ -1,0 +1,17 @@
+.todo-item {
+    display: flex;
+    button {
+        display: none;
+    }
+    &.done {
+        p {
+            color: #d9d9d9;
+            text-decoration: line-through;
+        }
+        button {
+            display: block;
+        }
+    }
+    &.not-done {
+    }
+}

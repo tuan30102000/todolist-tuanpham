@@ -1,0 +1,10 @@
+.todo-form{
+    display: flex;
+    button{
+        color: red;
+    }
+    justify-content: center;
+    input{
+        flex: 1;
+    }
+}
