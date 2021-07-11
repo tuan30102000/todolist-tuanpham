@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from '../TodoItem';
+import './style.scss'
 
 TodoList.propTypes = {
     TodoData: PropTypes.array,

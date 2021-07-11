@@ -31,7 +31,7 @@ function TodoItem(props) {
             
         >
             <p onClick={() => { handleOnClick(TodoItemData) }}>{TodoItemData.content}</p>
-            <button onClick={()=>handleDeleteData(TodoItemData)}>DELETE</button>
+            <div className={'button'} onClick={()=>handleDeleteData(TodoItemData)}>DELETE</div>
         </li>
     );
 }
