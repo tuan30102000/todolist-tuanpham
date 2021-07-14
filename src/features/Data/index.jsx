@@ -1,8 +1,9 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useState, useRef } from 'react';
 import ListData from './Components/ListData';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
-import PaginationBtn from './Components/PaginationBtn'
+import PaginationBtn from './Components/PaginationBtn';
+import SeachForm from './Components/SeachForm';
 
 ShowDataFeatures.propTypes = {
 
@@ -12,7 +13,7 @@ function ShowDataFeatures(props) {
     const [data, setData] = useState([])
     const [totalRows, setTotalRows] = useState(49)
     const [PageState, setPageState] = useState({
-        _limit: 4,
+        _limit: 10,
         _page: 1
     })
     const handlePagination = function (pageNumber) {
@@ -44,6 +45,7 @@ function ShowDataFeatures(props) {
 
     return (
         <div>
+            <SeachForm />
             <ListData data={data} />
             <PaginationBtn totalRows={totalRows} PageState={PageState} handlePagination={handlePagination} />
         </div>
