@@ -29,6 +29,10 @@ function TodoFeatures(props) {
         return () => {
         }
     }, [])
+    useEffect(() => {
+        setDataLcst(TodoData)
+        return
+    })
     const addData = function (data) {
         if (data) {
             const newTodoData = [...TodoData]
@@ -37,7 +41,6 @@ function TodoFeatures(props) {
                 status: 'not-done',
             }
             newTodoData.unshift(newData)
-            setDataLcst(newTodoData)
             setTodoData(newTodoData)
         }
     }
@@ -50,7 +53,6 @@ function TodoFeatures(props) {
                 ...newTodoData[index],
                 status: newTodoData[index].status === 'done' ? 'not-done' : 'done'
             }
-            setDataLcst(newTodoData)
             setTodoData(newTodoData)
         }
     }
@@ -59,7 +61,6 @@ function TodoFeatures(props) {
         // const index = newTodoData.indexOf(newTodoData.find((item) => item.id === id))
         let index = newTodoData.indexOf(object)
         newTodoData = [...newTodoData.slice(0, index), ...newTodoData.slice(index + 1)];
-        setDataLcst(newTodoData)
         setTodoData(newTodoData)
     }
     const handleShowStatus = (item) => {
