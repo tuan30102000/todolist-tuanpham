@@ -3,6 +3,12 @@ import { React, useEffect, useState } from 'react';
 import ListData from './Components/ListData';
 import PaginationBtn from './Components/PaginationBtn';
 import SeachForm from './Components/SeachForm';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 ShowDataFeatures.propTypes = {
 
