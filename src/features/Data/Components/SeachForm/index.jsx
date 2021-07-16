@@ -3,17 +3,26 @@ import PropTypes from 'prop-types';
 
 
 SeachForm.propTypes = {
+    handleSeach: PropTypes.func,
+
 
 };
+SeachForm.defaultProps = {
+    handleSeach: null
+
+}
 
 function SeachForm(props) {
-    const timeOutRef = useRef(null)
+    let timeOutRef = useRef(null)
+    const { handleSeach } = props
+    const [valueForm, setvalueForm] = useState('')
     const getSeachValue = (value) => {
-
-        let h1 = setTimeout(
-            () => {
-                console.log(h1)
-            }, 2000
+        if (timeOutRef.current) clearTimeout(timeOutRef.current)
+        setvalueForm(value)
+        timeOutRef.current = setTimeout(
+            () => {  
+                if (handleSeach) handleSeach(value)
+            }, 300
         )
     }
 
@@ -23,6 +32,7 @@ function SeachForm(props) {
             <input
                 type='text'
                 onChange={(e) => getSeachValue(e.target.value)}
+                value={valueForm}
             />
         </div>
     );

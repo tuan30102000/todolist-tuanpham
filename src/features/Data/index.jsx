@@ -1,7 +1,6 @@
-import { React, useEffect, useState, useRef } from 'react';
-import ListData from './Components/ListData';
-import PropTypes from 'prop-types';
 import queryString from 'query-string';
+import { React, useEffect, useState } from 'react';
+import ListData from './Components/ListData';
 import PaginationBtn from './Components/PaginationBtn';
 import SeachForm from './Components/SeachForm';
 
@@ -23,6 +22,15 @@ function ShowDataFeatures(props) {
             _page: newPageState._page + pageNumber
         })
     }
+    const handleSeach = function (value) {
+        const newSeachValue = PageState
+        setPageState({
+            ...newSeachValue,
+            _page: 1,
+            title_like:value
+        }
+        )
+    }
     useEffect(() => {
 
         try {
@@ -37,15 +45,15 @@ function ShowDataFeatures(props) {
             getData()
         } catch (error) {
             console.log(error)
-
+            alert('loi r')
         }
         return () => {
         }
-    }, [PageState._page])
+    }, [PageState])
 
     return (
         <div>
-            <SeachForm />
+            <SeachForm handleSeach={handleSeach}/>
             <ListData data={data} />
             <PaginationBtn totalRows={totalRows} PageState={PageState} handlePagination={handlePagination} />
         </div>
