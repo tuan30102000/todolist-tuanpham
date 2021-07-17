@@ -1,32 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import DetailPage from './Page/DetailPage';
-import TodoPage from './Page/TodoPage';
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link
-//   } from "react-router-dom";
 import {
-    Switch,
-    Route,
-    useLocation,
-    useRouteMatch,
-  } from "react-router-dom";
+  Route, Switch, useRouteMatch
+} from "react-router-dom";
+import DetailPage from './Pages/DetailPage';
+import TodoPage from './Pages/TodoPage';
 TodoFeatures.propTypes = {
 
 };
 
-function TodoFeatures(props) {
-  let location=useLocation()
+function TodoFeatures(props) {  
   let Math=useRouteMatch()
-  console.log(Math.path)
-  console.log(location.pathname)
     return (
         <div>
             <Switch>
-                <Route path={`${Math.path}`} exact component={TodoPage}/>
+                <Route path={Math.path} exact component={TodoPage}/>
                 <Route path={`${Math.path}/:param`}  component={DetailPage}/>
             </Switch>
         </div>
