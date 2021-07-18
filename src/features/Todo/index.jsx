@@ -19,5 +19,4 @@ function TodoFeatures(props) {
         </div>
     );
 }
-
 export default TodoFeatures;
