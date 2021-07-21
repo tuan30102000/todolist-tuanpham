@@ -8,20 +8,22 @@ InputField.propTypes = {
 };
 
 function InputField(props) {
-    const { form ,name,label} = props
+    const { form, name, label } = props
     return (
         <Controller
             name={name}
             control={form.control}
             render={({ field: { onChange, onBlur, value, name, ref }, fieldState: { invalid, error } }) => (
-                
+
                 <TextField
                     margin="normal"
                     variant="outlined"
                     fullWidth
                     label={label}
                     name={name}
-                  
+                    onChange={onChange}
+                    onBlur={onBlur}
+
                 />
             )}
         ></Controller>

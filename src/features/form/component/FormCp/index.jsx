@@ -13,12 +13,12 @@ function FormCp(props) {
             content:''
         }
     })
-    const handlesubmit=function(value){
+    const handlesubmit1=function(value){
      console.log('data is',value)       
     }
     return (
        
-        <form  onSubmit={form.handleSubmit(handlesubmit)}>
+        <form  onSubmit={form.handleSubmit(handlesubmit1)}>
             <InputField form={form} name='content' label='todo' form={form}/>
         </form>
     );
