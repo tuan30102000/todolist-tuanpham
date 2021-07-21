@@ -20,7 +20,7 @@ const categoryApi = {
     update(data) {
         const url = `/categories/:${data.id}`
 
-        return axiosClient.patch(url)
+        return axiosClient.patch(url,data)
     },
     remove(id) {
         const url = `/categories/:${id}`
