@@ -9,6 +9,8 @@ InputField.propTypes = {
 
 function InputField(props) {
     const { form, name, label } = props
+    let hasErrors = form.formState.touchedFields[name] && form.formState.errors[name]
+    console.log(hasErrors)
     return (
         <Controller
             name={name}
@@ -23,6 +25,8 @@ function InputField(props) {
                     name={name}
                     onChange={onChange}
                     onBlur={onBlur}
+                    error={!!hasErrors}
+                    helperText={form.formState.errors[name]?.message}
 
                 />
             )}

@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 const schema = yup.object().shape({
-    content: yup.string().required('phai nhap noi dung'),
+    content: yup.string().max(5,'nhap du 5 ki tu').required('phai nhap noi dung'),
 });
 
 FormCp.propTypes = {
@@ -20,16 +20,11 @@ function FormCp(props) {
         resolver: yupResolver(schema)
     })
     const handlesubmit1 = function (value) {
-
         console.log('data is', value)
     }
     return (
 
-        <form onSubmit={
-            form.handleSubmit(handlesubmit1)
-
-
-        }>
+        <form onSubmit={form.handleSubmit(handlesubmit1)}>
             <InputField form={form} name='content' label='todo' form={form} />
         </form>
     );
