@@ -8,22 +8,54 @@ FormHandle.propTypes = {
 };
 
 function FormHandle(props) {
+    const InputValidateInfo = [
+        {
+            name: 'name',
+            label: 'name',
+            validate: {
+                required: 'nhap du thong tin',
+                maxLength: {
+                    value: 5,
+                    message: 'error message'
+                }
+            }
+        },
+        {
+            name: 'age',
+            label: 'age',
+            validate: {
+                required: 'nhap du thong tin tuoi tac',
+                maxLength: {
+                    value: 2,
+                    message: 'error message'
+                },
+                minLength: {
+                    value: 1,
+                    message: 'error message'
+                },
+            }
+        }
+
+    ]
     const form = useForm({
         defaultValues: {
             name: '',
             age: ''
         }
     })
-    const handlesb=function(data) {
+    const handlesb = function (data) {
         console.log(data)
     }
-    const { register, handleSubmit } =form
+    const { handleSubmit } = form
 
     return (
         <form onSubmit={handleSubmit(handlesb)}>
-            <InputElm register={register} namePr='name' form={form} contentLabel='name'/>
-            <InputElm register={register} namePr='age' form={form} contentLabel='age'/>
-            <input type='submit'/>
+            {
+                InputValidateInfo.map((item,index) => {
+                    return <InputElm key={index} contentLabel={item.label} namePr={item.name} validate={item.validate} form={form}/>
+                })
+            }
+            <input type='submit' />
         </form>
     );
 }
