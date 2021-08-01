@@ -17,14 +17,15 @@ function Register(props) {
         try {
             data.username = data.email
             delete data.passwordRepeat
-            // const action = register(data)
-            // const resultAction = await dispatch(action)
-            // const user = unwrapResult(resultAction)
-            // console.log(user)
-            console.log(data)
-            const newData=await userApi.register(data)
+            const action = register(data)
+            const resultAction = await dispatch(action)
+            const user = unwrapResult(resultAction)
+            console.log(user)
+            // console.log(data)
+            // const newData=await userApi.register(data)
+            // console.log(newData)
         } catch (error) {
-            console.log('gaploi',error)
+            console.log('gaploi', error)
             alert(error)
         }
 
