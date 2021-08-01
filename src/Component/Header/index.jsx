@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import './style.scss'
-import RegisterForm from '../../features/auth/component/RegisterForm';
+import Register from '../../features/auth/component/Register';
+import './style.scss';
 
 Header.propTypes = {
 
@@ -11,7 +10,7 @@ Header.propTypes = {
 function Header(props) {
     const [registerState, setregisterState] = useState(false)
     const handleRegister = function () {
-        let newState = registerState ? false : true
+        let newState =!registerState
         setregisterState(newState)
     }
     return (
@@ -26,7 +25,7 @@ function Header(props) {
                     </div>
                 </div>
             </div>
-            {registerState && <RegisterForm />}
+            {registerState && <Register close={handleRegister} />}
         </header>
     );
 }

@@ -7,7 +7,16 @@ import ShowDataFeatures from './features/Data';
 import TodoFeatures from './features/Todo';
 import FormFeature from './features/form'
 import Header from "./Component/Header";
+import { useEffect } from "react";
+import { productsApi } from "./api/productsApi";
 function App() {
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const newData=await productsApi.getAll()
+  //     console.log(newData)
+  //   }
+  //   getData()
+  // }, [])
   return (
     <div className="App">
       <Header />

@@ -1,7 +1,7 @@
 import axios from "axios";
 import axiosClient from "./axiosClient";
 
-const categoryApi = {
+export const productsApi = {
     getAll(param) {
         const url = '/products/'
 

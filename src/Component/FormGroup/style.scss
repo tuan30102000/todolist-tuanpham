@@ -1,0 +1,43 @@
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    p{
+        font-size: 10px;
+        color: red;
+    }
+    &.invalid .form-control-box{
+        border-color:red ;
+    }
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+.form-control-box {
+    padding: 5px;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    background-color: #fff;
+    width: 250px;
+    display: flex;
+    span {
+        max-width: 11px;
+        display: flex;
+        align-items: center;
+    }
+   
+}
+.form-control {
+    flex: 1;
+    border: none;
+    outline: none;
+    height: 20px;
+    font-size: 15px;
+    
+    // &[type="password"]{
+    //     -webkit-text-security: disc;
+    //     letter-spacing: 1px;
+    // }
+}
