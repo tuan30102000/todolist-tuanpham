@@ -4,7 +4,6 @@ import FormGroup from '../../../../Component/FormGroup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import './style.scss'
 import { LinearProgress } from '@material-ui/core';
 
 const schema = yup.object().shape({
@@ -37,12 +36,12 @@ function RegisterForm(props) {
     return (
         <form onSubmit={handleSubmit(sunbmit)}  className='form'>
             {formState.isSubmitting && <LinearProgress color="secondary" className='progress' />}
-            <p className='register__title'>Dang ki</p>
+            <p className='auth__title'>Dang ki</p>
             <FormGroup formName='register' form={form} name='fullName' />
             <FormGroup formName='register' form={form} name='email' />
             <FormGroup formName='register' form={form} type='password' name='password' />
             <FormGroup formName='register' form={form} type='password' name='passwordRepeat' />
-            <button className="register__submit-btn">Dang ki</button>
+            <button className="auth__submit-btn">Dang ki</button>
         </form>
     );
 }

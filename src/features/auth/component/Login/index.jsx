@@ -3,45 +3,40 @@ import { useSnackbar } from 'notistack';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import '../../style.scss';
-import { register } from '../../userSLice';
-import RegisterForm from '../RegisterForm';
-Register.propTypes = {
+import { login } from '../../userSLice';
+import LoginForm from '../LoginForm';
+Login.propTypes = {
 
 };
 
-function Register(props) {
+function Login(props) {
     const { enqueueSnackbar } = useSnackbar()
     const { close } = props
     const dispatch = useDispatch()
     const submitFc = async (data) => {
         try {
-            data.username = data.email
-            delete data.passwordRepeat
-            const action = register(data)
+            data.identifier = data.username
+            delete data.username
+            console.log(data)
+            const action = login
             const resultAction = await dispatch(action)
             const user = unwrapResult(resultAction)
-            console.log(user)
             close()
-            enqueueSnackbar('dang ki thanh cong',{variant:'success'})
-            // console.log(data)
-            // const newData=await userApi.register(data)
-            // console.log(newData)
+            enqueueSnackbar('Đăng nhập thành công',{variant:'success'})
         } catch (error) {
-            console.log('gaploi', error)
-            alert(error)
+            console.log('Loi dang nhap', error)
+            alert('Đăng nhập không thành công')
         }
-
-
     }
     return (
         <div className='auth-box'>
             <div className="auth__over-play"></div>
             <div className="auth__form">
-                <RegisterForm submitFc={submitFc} />
+                <LoginForm submitFc={submitFc} />
                 <div onClick={close} className="auth__btn-close"><i className="fal fa-times-circle"></i></div>
             </div>
         </div>
     );
 }
 
-export default Register;
+export default Login;
