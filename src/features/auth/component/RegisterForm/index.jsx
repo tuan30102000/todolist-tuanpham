@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import './style.scss'
+import { LinearProgress } from '@material-ui/core';
 
 const schema = yup.object().shape({
     fullName: yup.string().required('vuilong nhap ten').test('check name', 'vui long nhap ho ten day du', (value) => value.split(' ').length >= 2),
@@ -28,9 +29,14 @@ function RegisterForm(props) {
         },
         resolver: yupResolver(schema)
     })
-    const { handleSubmit } = form
+    const { handleSubmit, formState } = form
+    const sunbmit=(value)=>{
+
+        submitFc(value)
+    }
     return (
-        <form onSubmit={handleSubmit(submitFc)} className='form'>
+        <form onSubmit={handleSubmit(sunbmit)}  className='form'>
+            {formState.isSubmitting && <LinearProgress color="secondary" className='progress' />}
             <p className='register__title'>Dang ki</p>
             <FormGroup formName='register' form={form} name='fullName' />
             <FormGroup formName='register' form={form} name='email' />

@@ -1,16 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import RegisterForm from '../RegisterForm';
-import './style.scss'
-import { register } from '../../userSLice';
+import { LinearProgress } from '@material-ui/core';
 import { unwrapResult } from '@reduxjs/toolkit';
+import { useSnackbar } from 'notistack';
+import React from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import userApi from '../../../../api/userApi';
+import { register } from '../../userSLice';
+import RegisterForm from '../RegisterForm';
+import './style.scss';
 Register.propTypes = {
 
 };
 
 function Register(props) {
+    const { enqueueSnackbar } = useSnackbar()
     const { close } = props
     const dispatch = useDispatch()
     const submitFc = async (data) => {
@@ -21,6 +23,8 @@ function Register(props) {
             const resultAction = await dispatch(action)
             const user = unwrapResult(resultAction)
             console.log(user)
+            close()
+            enqueueSnackbar('dang ki thanh cong',{variant:'success'})
             // console.log(data)
             // const newData=await userApi.register(data)
             // console.log(newData)
@@ -35,7 +39,7 @@ function Register(props) {
         <div className='register-box'>
             <div className="regiter__over-play"></div>
             <div className="register__form">
-                <RegisterForm close={close} submitFc={submitFc} />
+                <RegisterForm submitFc={submitFc} />
                 <div onClick={close} className="register__btn-close"><i className="fal fa-times-circle"></i></div>
             </div>
         </div>
