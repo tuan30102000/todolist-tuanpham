@@ -39,6 +39,9 @@ function Register(props) {
             <div className="auth__form">
                 <RegisterForm submitFc={submitFc} />
                 <div onClick={close} className="auth__btn-close"><i className="fal fa-times-circle"></i></div>
+                <p onClick={()=>{close('login')}} className="move-to-diffirent-auth">
+                    Have account?login
+                </p>
             </div>
         </div>
     );

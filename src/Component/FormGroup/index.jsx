@@ -1,30 +1,27 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import './style.scss'
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import './style.scss';
 
 FormGroup.propTypes = {
     type: PropTypes.string,
     name: PropTypes.string.isRequired,
     form: PropTypes.object.isRequired,
-    accuracy: PropTypes.object,
     formName: PropTypes.string.isRequired,
 };
 FormGroup.defaultProps = {
     type: 'text',
-    accuracy: {}
 }
 
 function FormGroup(props) {
-    const { type, name, accuracy, form, formName } = props
-    const { register, unregister, formState } = form
-    const { errors, touchedFields } = formState
+    const { type, name, form, formName } = props
+    const { register, formState } = form
+    const { errors} = formState
     const [inputType, setinputType] = useState(type)
     const hasErrors = !!(errors[name] /* && touchedFields */)
     const handleChangeType = () => {
         setinputType(inputType === 'password' ? 'text' : 'password')
     }
-    const newAccuracy={...accuracy,...{ shouldUnregister: true }}
     return (
         <div className={classNames({
             'form-group': true,

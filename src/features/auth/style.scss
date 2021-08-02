@@ -65,3 +65,13 @@
         width: calc(100%);
     }
 }
+.move-to-diffirent-auth{
+    color: blue;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}

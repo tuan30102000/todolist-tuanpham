@@ -17,8 +17,7 @@ function Login(props) {
         try {
             data.identifier = data.username
             delete data.username
-            console.log(data)
-            const action = login
+            const action = login(data)
             const resultAction = await dispatch(action)
             const user = unwrapResult(resultAction)
             close()
@@ -34,6 +33,9 @@ function Login(props) {
             <div className="auth__form">
                 <LoginForm submitFc={submitFc} />
                 <div onClick={close} className="auth__btn-close"><i className="fal fa-times-circle"></i></div>
+                <p onClick={()=>{close('register')}} className="move-to-diffirent-auth">
+                    Have account?register
+                </p>
             </div>
         </div>
     );

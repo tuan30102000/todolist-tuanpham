@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import {
   Route, Switch
 } from "react-router-dom";
@@ -15,15 +16,20 @@ function App() {
   //   }
   //   getData()
   // }, [])
+  const stateAuth = !!(useSelector(state => state.user.current.id))
+  console.log(stateAuth)
   return (
     <div className="App">
       <Header />
-      <Switch>
-        <Route path="/" exact component={TodoFeatures} />
-        <Route path="/todo" component={TodoFeatures} />
-        <Route path="/data" component={ShowDataFeatures} />
-        <Route path="/form" component={FormFeature} />
-      </Switch>
+      {stateAuth && (
+        <Switch>
+          <Route path="/" exact component={TodoFeatures} />
+          <Route path="/todo" component={TodoFeatures} />
+          <Route path="/data" component={ShowDataFeatures} />
+          <Route path="/form" component={FormFeature} />
+        </Switch>
+      )}
+
     </div>
   );
 }
