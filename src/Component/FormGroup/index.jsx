@@ -22,8 +22,8 @@ function FormGroup(props) {
     const handleChangeType = () => {
         setinputType(inputType === 'password' ? 'text' : 'password')
     }
-    const firstName = register(name, { shouldUnregister: true })
-    console.log(firstName)
+    // const firstName = register(name, { shouldUnregister: true })
+    // console.log(firstName)
     return (
         <div className={classNames({
             'form-group': true,
@@ -35,11 +35,10 @@ function FormGroup(props) {
 
                     className='form-control'
                     id={formName + '-' + name}
-                    name={name}
-                    // {...register(name, { shouldUnregister: true })}
-                    onChange={firstName.onChange}
-                    onBlur={firstName.onBlur}
-                    ref={firstName.ref}
+                    {...register(name, { shouldUnregister: true })}
+                    // onChange={firstName.onChange}
+                    // onBlur={firstName.onBlur}
+                    // ref={firstName.ref}
                 />
                 {type === 'password' && <span onClick={handleChangeType}><i className={classNames({ 'fal fa-eye': inputType === 'password', 'fal fa-eye-slash': inputType !== 'password', })}></i></span>}
             </div>
