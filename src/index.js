@@ -12,13 +12,13 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <Provider store={store}>
-  <React.StrictMode>
+  {/* <React.StrictMode> */}
     <BrowserRouter>
     <SnackbarProvider anchorOrigin={{vertical:'top',horizontal:'right'}}>
     <App />
     </SnackbarProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  {/* </React.StrictMode> */}
   </Provider>,
   document.getElementById('root')
 );

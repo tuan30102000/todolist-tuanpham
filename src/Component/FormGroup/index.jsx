@@ -16,12 +16,14 @@ FormGroup.defaultProps = {
 function FormGroup(props) {
     const { type, name, form, formName } = props
     const { register, formState } = form
-    const { errors} = formState
+    const { errors } = formState
     const [inputType, setinputType] = useState(type)
     const hasErrors = !!(errors[name] /* && touchedFields */)
     const handleChangeType = () => {
         setinputType(inputType === 'password' ? 'text' : 'password')
     }
+    const firstName = register(name, { shouldUnregister: true })
+    console.log(firstName)
     return (
         <div className={classNames({
             'form-group': true,
@@ -30,9 +32,14 @@ function FormGroup(props) {
             <label htmlFor={formName + '-' + name}>{name}</label>
             <div className="form-control-box">
                 <input type={inputType}
+
                     className='form-control'
                     id={formName + '-' + name}
-                    {...register(name, { shouldUnregister: true })}
+                    name={name}
+                    // {...register(name, { shouldUnregister: true })}
+                    onChange={firstName.onChange}
+                    onBlur={firstName.onBlur}
+                    ref={firstName.ref}
                 />
                 {type === 'password' && <span onClick={handleChangeType}><i className={classNames({ 'fal fa-eye': inputType === 'password', 'fal fa-eye-slash': inputType !== 'password', })}></i></span>}
             </div>
