@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import {
+  Redirect,
   Route, Switch
 } from "react-router-dom";
 import './assets/font-awesome-pro-master/font-awesome-pro-master/font-awesome-pro-master/css/all.css';
@@ -23,7 +24,7 @@ function App() {
       <Header />
       {stateAuth && (
         <Switch>
-          <Route path="/" exact component={TodoFeatures} />
+          <Redirect from="/" to="/products" />
           <Route path="/todo" component={TodoFeatures} />
           <Route path="/data" component={ShowDataFeatures} />
           <Route path="/form" component={FormFeature} />
