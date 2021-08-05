@@ -10,7 +10,7 @@ Login.propTypes = {
 };
 
 function Login(props) {
-    const { enqueueSnackbar } = useSnackbar()
+    const { enqueueSnackbar,closeSnackbar } = useSnackbar()
     const { close } = props
     const dispatch = useDispatch()
     const submitFc = async (data) => {
@@ -22,6 +22,9 @@ function Login(props) {
             const user = unwrapResult(resultAction)
             close()
             enqueueSnackbar('Đăng nhập thành công',{variant:'success'})
+
+            setTimeout(closeSnackbar,5000)
+
         } catch (error) {
             console.log('Loi dang nhap', error)
             alert('Đăng nhập không thành công')

@@ -8,6 +8,7 @@ import './assets/style/style.scss';
 import Header from "./Component/Header";
 import ShowDataFeatures from './features/Data';
 import FormFeature from './features/form';
+import ProductFeature from "./features/Products";
 import TodoFeatures from './features/Todo';
 function App() {
   // useEffect(() => {
@@ -22,14 +23,18 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {stateAuth && (
+      {/* {stateAuth && ( */}
         <Switch>
-          <Redirect from="/" to="/products" />
+          {/* <Route path="/" component={TodoFeatures}  exact/> */}
           <Route path="/todo" component={TodoFeatures} />
           <Route path="/data" component={ShowDataFeatures} />
           <Route path="/form" component={FormFeature} />
+          <Route path="/products" component={ProductFeature} />
+          <Redirect from="/" to="/products" />
         </Switch>
-      )}
+        
+      {/* )} */}
+      {/* {stateAuth && <TodoFeatures />} */}
 
     </div>
   );

@@ -26,10 +26,11 @@ function Header(props) {
     return (
         <header className='header layout'>
             <div className="layout-box header-box">
-                <a className='header__link logo'>Legacy</a>
+                <NavLink to='/' className='header__link logo'>Legacy</NavLink>
                 <div className="header__link-box">
                     <NavLink className='header__link' to='/todo' >Todo</NavLink>
-                    <NavLink className='header__link' to='/data' >Data</NavLink>
+                    {/* <NavLink className='header__link' to='/data' >Data</NavLink> */}
+                    <NavLink className='header__link' to='/products' >Product</NavLink>
                     {stateLogin && (<>
                         <div onClick={() => { handleAuth('register') }} className='header__link'>
                             Register

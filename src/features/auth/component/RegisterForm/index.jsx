@@ -29,12 +29,14 @@ function RegisterForm(props) {
         resolver: yupResolver(schema)
     })
     const { handleSubmit, formState } = form
-    const sunbmit=(value)=>{
+    const sunbmit =async (value) => {
 
         submitFc(value)
+        await submitFc(value)
+        form.reset()
     }
     return (
-        <form onSubmit={handleSubmit(sunbmit)}  className='form'>
+        <form onSubmit={handleSubmit(sunbmit)} className='form'>
             {formState.isSubmitting && <LinearProgress color="secondary" className='progress' />}
             <p className='auth__title'>Dang ki</p>
             <FormGroup formName='register' form={form} name='fullName' />

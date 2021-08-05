@@ -10,7 +10,7 @@ Register.propTypes = {
 };
 
 function Register(props) {
-    const { enqueueSnackbar } = useSnackbar()
+    const { enqueueSnackbar,closeSnackbar } = useSnackbar()
     const { close } = props
     const dispatch = useDispatch()
     const submitFc = async (data) => {
@@ -26,6 +26,7 @@ function Register(props) {
             // console.log(data)
             // const newData=await userApi.register(data)
             // console.log(newData)
+            setTimeout(closeSnackbar,5000)
         } catch (error) {
             console.log('gaploi', error)
             alert(error)

@@ -25,15 +25,14 @@ function LoginForm(props) {
         resolver: yupResolver(schema)
     })
     const { handleSubmit, formState } = form
-    console.log(formState.isSubmitting)
 
-    const sunbmit = (value) => {
-
-        submitFc(value)
+    const sunbmit = async (value) => {
+        await submitFc(value)
+        form.reset()
     }
     return (
         <form onSubmit={handleSubmit(sunbmit)} className='form'>
-            {true && <LinearProgress color="secondary" className='progress' />}
+            {formState.isSubmitting && <LinearProgress color="secondary" className='progress' />}
             <p className='auth__title'>Đăng Nhập</p>
             <FormGroup formName='login' form={form} name='username' />
             <FormGroup formName='login' form={form} type='password' name='password' />
