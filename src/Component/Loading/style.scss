@@ -1,0 +1,23 @@
+.loading {
+    position: fixed;
+    z-index: 10;
+    background-color: #f0f2f5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.loading-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    animation: rotating 5s linear infinite;
+    i {
+        font-size: 30px;
+    }
+}
+// @keyframes spin{
+//     form
+// }

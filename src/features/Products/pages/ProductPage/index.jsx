@@ -1,16 +1,40 @@
-import React from 'react';
-import ProductFilter from '../../component/ProductFilter';
-import ProductList from '../../component/ProductList';
+import React, { useEffect, useState } from 'react';
+import { productsApi } from '../../../../api/productsApi';
+import Loading from '../../../../Component/Loading';
+import ProductFilter from '../../component/ProductFilter/';
+import ProductList from '../../component/ProductList/';
 import './style.scss';
 ProductPage.propTypes = {
 
 };
 
 function ProductPage(props) {
+    const [load, setload] = useState(true)
+    let productList
+    useEffect(() => {
+        const getData = async function () {
+            try {
+                let data = await productsApi.getAll()
+                setload(false)
+                productList = data.data
+                console.log(productList)
+            } catch (error) {
+                console.log(error)
+            }
+           
+        }
+        getData()
+    }, [])
+
     return (
         <div className='container__product'>
-            <ProductFilter/>
-            <ProductList/>
+            {/* {!load && (<>
+                <ProductFilter />
+                <ProductList productList={productList} />
+            </>)}
+            {load && <Loading />} */}
+
+
         </div>
     );
 }

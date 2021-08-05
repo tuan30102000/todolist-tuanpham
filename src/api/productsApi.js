@@ -2,10 +2,20 @@ import axios from "axios";
 import axiosClient from "./axiosClient";
 
 export const productsApi = {
-    getAll(param) {
-        const url = '/products/'
+    async getAll(param = { page: 1, _limit: 20 }) {
 
-        return axiosClient.get(url, { params: param })
+        const newParam = { ...param }
+        newParam._start = newParam.page > 1 ? newParam.page * newParam._limit : 0
+        delete newParam.page
+        const data = await axiosClient.get('/products', { params:newParam })
+        const total = await axiosClient.get('/products/count', { params:newParam })
+
+        return{
+            data,
+            pagination:{
+                ...param,total
+            }
+        }
     },
     get(id) {
         const url = `/products/:${id}`
@@ -15,12 +25,12 @@ export const productsApi = {
     add(data) {
         const url = '/products/'
 
-        return axiosClient.post(url,data)
+        return axiosClient.post(url, data)
     },
     update(data) {
         const url = `/products/:${data.id}`
 
-        return axiosClient.patch(url,data)
+        return axiosClient.patch(url, data)
     },
     remove(id) {
         const url = `/products/:${id}`
