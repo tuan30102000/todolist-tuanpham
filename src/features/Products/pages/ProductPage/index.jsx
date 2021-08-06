@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useStore } from 'react-redux';
 import { productsApi } from '../../../../api/productsApi';
 import Loading from '../../../../Component/Loading';
 import ProductFilter from '../../component/ProductFilter/';
@@ -10,14 +11,13 @@ ProductPage.propTypes = {
 
 function ProductPage(props) {
     const [load, setload] = useState(true)
-    let productList
+    const [productList, setproductList] = useState([])
     useEffect(() => {
         const getData = async function () {
             try {
                 let data = await productsApi.getAll()
                 setload(false)
-                productList = data.data
-                console.log(productList)
+                setproductList(data.data)
             } catch (error) {
                 console.log(error)
             }
@@ -28,11 +28,12 @@ function ProductPage(props) {
 
     return (
         <div className='container__product'>
-            {/* {!load && (<>
+            {!load && (<>
                 <ProductFilter />
                 <ProductList productList={productList} />
             </>)}
-            {load && <Loading />} */}
+            {load && <Loading />}
+
 
 
         </div>

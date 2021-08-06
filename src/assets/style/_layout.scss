@@ -1,24 +1,107 @@
 .layout {
     display: flex;
     justify-content: center;
-
 }
-a{
+a {
     display: block;
     text-decoration: none;
 }
-@media(min-width:1300px){
-    .layout-box{
-        flex-basis: 1250px;
-    }
-}
-@media(min-width:1074px)and(max-width:1299px){
-    .layout-box{
-        flex-basis: 1024px;
-    }
-}
+// @media (min-width: 1300px) {
+//     .layout-box {
+//         flex-basis: 1250px;
+//     }
+// }
+// @media (min-width: 1074px) and(max-width:1299px) {
+//     .layout-box {
+//         flex-basis: 1024px;
+//     }
+// }
 // @media(min-width:1300px){
 //     .layout-box{
 //         flex-basis: 1024px;
 //     }
 // }
+.app {
+    /* padding-top: 162px; */
+    overflow: hidden;
+    
+}
+// .logo {
+//     display: flex;
+//     font-size: 24px;
+//     color: #fff;
+//     font-weight: 900;
+//     transition: 0.4s;
+//     align-items: center;
+//     justify-content: flex-start;
+//     img {
+//         height: 70px;
+//         width: 52px;
+//     }
+//     /* span{
+//         display: none;
+//     } */
+// }
+// .layout {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+// .layout-no-pd {
+//     flex-basis: var(--layout-no-pd);
+// }
+@media (min-width: 1366px) {
+    .layout-box {
+        flex-basis: 1250px;
+    }
+
+    .show-pc {
+        display: block;
+    }
+    .grid-col-12 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: var(--grid-gap-col);
+    }
+}
+@media (min-width: 1024px) and(max-width:1365px) {
+    .show-lap {
+        display: block;
+    }
+    .layout-box {
+        flex-basis: 1024px;
+        padding: 0 80px;
+    }
+
+    .grid-col-12 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: var(--grid-gap-col);
+    }
+}
+@media (min-width: 768px) and(max-width:1023px) {
+    // .layout-box {
+    //     flex-basis: 768px;
+    //     padding: 0 40px;
+    // }
+    .show-tablet {
+        display: block;
+    }
+    .grid-col-12 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: var(--grid-gap-col);
+    }
+}
+@media (max-width: 767.5px) {
+    .hidden-on-mobie {
+        display: none !important;
+    }
+    // .layout-box {
+    //     flex: 1;
+    //     padding: 0 32px;
+    // }
+    .show-mb {
+        display: block !important;
+    }
+}

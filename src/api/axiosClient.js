@@ -1,7 +1,8 @@
 import axios from "axios"
+import { ApiUrl } from "../constants/ApiUrl";
 
 const axiosClient = axios.create({
-  baseURL: 'https://api.ezfrontend.com/',
+  baseURL: ApiUrl.baseURL,
   headers: {
     'content-Type': 'application/json',
   }
