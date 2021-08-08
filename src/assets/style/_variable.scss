@@ -9,7 +9,7 @@
 
 @media (min-width: 1366px) {
     :root {
-        --grid-gap-col: 0;
+        --grid-gap-col: 30px;
         // --header-height: 112px;
         --grid-gap-col-mg: -40px;
         --grid-gap-col-mg-lap-pc: -40px;
@@ -21,7 +21,7 @@
 }
 @media (min-width: 1024px) and(max-width:1365px) {
     :root {
-        --grid-gap-col: 0;
+        --grid-gap-col: 30px;
         // --header-height: 112px;
         --grid-gap-col-mg: -32px;
         --grid-gap-col-mg-lap-pc: -32px;
