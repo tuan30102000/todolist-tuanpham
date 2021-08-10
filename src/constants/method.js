@@ -25,6 +25,28 @@ const method = {
     },
     changeMoney(number, st = 'Vnd') {
         return this.changeNumberToString(number) + '' + st
+    },
+    listPaginationBtn(currentPage, showPage, maxPage) {
+        let page = showPage < maxPage ? showPage : maxPage
+        let rangePage = showPage % 2 == 0 ? showPage / 2 : (showPage - 1) / 2
+        let arr = []
+        if (showPage - currentPage >= 0 || maxPage - currentPage < showPage) {
+            if (showPage - currentPage >= 0) {
+                for (let i = 1; i <= page; i++) {
+                    arr.push(i)
+                }
+            } else if (maxPage - currentPage < showPage) {
+                for (let i = 1; i <= page; i++) {
+                    arr.push(maxPage - showPage + i)
+                }
+            }
+        }
+        else {
+            for (let i = 0; i < showPage; i++) {
+                arr.push(currentPage - rangePage + i)
+            }
+        }
+        return arr
     }
 }
 

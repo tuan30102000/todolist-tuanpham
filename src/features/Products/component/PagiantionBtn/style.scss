@@ -1,0 +1,30 @@
+
+.pagination__btn-list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.pagination__btn{
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-right: 5px;
+    &.choose {
+        background-color: #ff1493;
+        color: #fff;
+        // transition: 1s;
+        border-radius: 3px;
+    }
+    &:not(.prev):not(.next):not(.choose):hover{
+        background-color: #ff1493;
+        color: #fff;
+        // transition: 1s;
+        opacity: 0.7;
+        border-radius: 3px;
+    }
+}

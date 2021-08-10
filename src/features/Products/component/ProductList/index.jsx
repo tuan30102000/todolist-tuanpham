@@ -4,6 +4,7 @@ import ProductCard from '../ProductCard';
 import thumbnailDefault from '../../../../assets/image/thumbnail1.jpg'
 import { ApiUrl } from '../../../../constants/ApiUrl';
 import './style.scss'
+import PaginationBtn from '../PagiantionBtn';
 ProductList.propTypes = {
     productList: PropTypes.array,
 };
