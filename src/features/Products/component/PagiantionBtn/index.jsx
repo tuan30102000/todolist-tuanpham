@@ -23,7 +23,7 @@ function PaginationBtn(props) {
                 disabled={paginationInfo.page == 1}
                 className='pagination__btn next'
                 onClick={() => filterFc(paginationInfo.page - 1)}>
-                <i class="fal fa-chevron-double-left"></i>
+                <i className="fal fa-chevron-double-left"></i>
             </button>
             {ListBtn.map((item) => <button
                 key={item}
@@ -37,7 +37,7 @@ function PaginationBtn(props) {
                 className='pagination__btn next'
                 disabled={paginationInfo.page == Math.ceil(paginationInfo.total / paginationInfo._limit)}
                 onClick={() => filterFc(paginationInfo.page + 1)}>
-                <i class="fal fa-chevron-double-right"></i>
+                <i className="fal fa-chevron-double-right"></i>
             </button>
         </div>
     );

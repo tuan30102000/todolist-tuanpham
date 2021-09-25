@@ -6,7 +6,6 @@ export const productsApi = {
 
         const newParam = { ...param }
         newParam._start = newParam.page > 1 ? (newParam.page-1) * newParam._limit : 0
-        console.log(newParam)
         delete newParam.page
         const data = await axiosClient.get('/products', { params:newParam })
         const total = await axiosClient.get('/products/count', { params:newParam })

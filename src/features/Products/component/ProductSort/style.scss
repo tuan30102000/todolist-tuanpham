@@ -1,0 +1,33 @@
+.Sort__btn-list {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 15px;
+    & > div {
+        height: 100%;
+        text-transform: uppercase;
+        font-size: 13px;
+        margin-right: 10px;
+        cursor: pointer;
+        font-weight: 500;
+        position: relative;
+        display: flex;
+        align-items: center;
+        &:hover {
+            color: red;
+        }
+        &.active {
+            color: cadetblue;
+            &::after {
+                content: "";
+                width: 100%;
+                height: 2px;
+                background-color: currentColor;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            
+        }
+    }
+}

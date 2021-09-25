@@ -31,7 +31,10 @@
     "start": "set PORT=3006 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "newcp":"mkdir index && cd index && touch index.jsx style.scss",
+    "newcpg":"cd src && cd components && mkdir index && cd index && touch index.jsx style.scss",
+    "newft":"cd src && cd features && mkdir ft && cd ft && touch index.jsx style.scss && mkdir page component && cd .. && mv ft"
   },
   "eslintConfig": {
     "extends": [
