@@ -69,7 +69,7 @@ function ProductPage(props) {
     }
     const filterShowChange = function (item) {
         // setfilterInfo(() => ({ ...item }))
-        const newFilter = { ...item };
+        const newFilter = { ...item,page:1 };
         history.push({
             pathname: history.location.pathname,
             search: queryString.stringify(newFilter)
@@ -100,7 +100,7 @@ function ProductPage(props) {
             search: queryString.stringify(filterParams)
         })
 
-    }, [history, filterParams])
+    }, [])
 
     return (
         <div className='container__product'>

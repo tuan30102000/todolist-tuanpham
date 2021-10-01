@@ -9,7 +9,7 @@ FilterView.propTypes = {
 const filterList = [
     {
         id: 1,
-        getLabel: (filter) => 'giao hang mien phi',
+        getLabel: () => 'giao hang mien phi',
         isActive: (filter) => Boolean(filter.isFreeShip),
         isVisiable: () => true,
         isRemoveable: (filter) => false,
@@ -18,7 +18,7 @@ const filterList = [
             const newFilter = {
                 ...filter,
             }
-            if (Object.keys(newFilter).includes('isFreeShip')) delete newFilter.isFreeShip
+            if (newFilter.isFreeShip)  newFilter.isFreeShip=undefined
             else newFilter.isFreeShip=true
             return newFilter
         },
