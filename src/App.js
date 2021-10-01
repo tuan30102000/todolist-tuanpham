@@ -19,7 +19,6 @@ function App() {
   //   getData()
   // }, [])
   const stateAuth = !!(useSelector(state => state.user.current.id))
-  console.log(stateAuth)
   return (
     <div className="App">
       <Header />

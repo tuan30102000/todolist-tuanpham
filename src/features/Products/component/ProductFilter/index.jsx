@@ -1,24 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import categoryApi from '../../../../api/categoryApi';
 import FilterByCategory from './component/FilterByCategory';
-
+import FilterByPriceRange from './component/FilterByPriceRange';
+import FilterByService from './component/FilterByService';
+import './style.scss'
 
 ProductFilter.propTypes = {
 
 };
 
 function ProductFilter(props) {
-    const { onChange } = props
+    const { onChange, filterInfo } = props
     const [categoryList, setcategoryList] = useState([])
-    const handleFilterCategory =function (categoryId) {
-        onChange({'category.id':categoryId})
+    const handleFilterCategory = function (category) {
+        onChange({
+            'category.id': category.id,
+            'category.name': category.name
+        })
+    }
+    const handleFilterchange = function (range) {
+        onChange(range)
     }
     useEffect(() => {
         const getCategory = async () => {
             try {
                 let newCategoryList = await categoryApi.getAll()
-                console.log(newCategoryList)
                 setcategoryList(newCategoryList)
 
             } catch (error) {
@@ -35,7 +41,9 @@ function ProductFilter(props) {
     return (
         <div className='container__product-filter'>
             {/* <FilterByCategory categoryList={categoryList} /> */}
-            <FilterByCategory onChange={handleFilterCategory} categoryList={categoryList}/>
+            <FilterByCategory onChange={handleFilterCategory} categoryList={categoryList} />
+            <FilterByPriceRange onChange={handleFilterchange} />
+            <FilterByService onChange={handleFilterchange} filterInfo={filterInfo} />
         </div>
     );
 }

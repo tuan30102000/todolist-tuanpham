@@ -41,7 +41,7 @@ function TodoPage(props) {
     useEffect(() => {
         setDataLcst(TodoData)
         return
-    })
+    },[])
 
     useEffect(() => {
         setshowTodoState(queryString.parse(location.search).status||'all')

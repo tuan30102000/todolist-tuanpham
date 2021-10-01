@@ -16,7 +16,7 @@ function FilterByCategory(props) {
                         'category__item':true
                         
                     })} key={item.id}
-                        onClick={()=>{onChange(item.id)}}
+                        onClick={()=>{onChange(item)}}
                     >
                         {item.name}
                     </div>

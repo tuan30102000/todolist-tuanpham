@@ -1,4 +1,3 @@
-import { NewReleasesRounded } from "@material-ui/icons"
 
 const method = {
     handleString(string, n = 30) {
@@ -18,7 +17,6 @@ const method = {
             return arrOfStringNumber.join('')
         }
     }, _c(x, y) {
-        let du = x % y
         return {
             kq: (x > y && x % y === 0) ? Math.floor((x / y) - 1) : Math.floor((x / y)),
         }
@@ -27,10 +25,12 @@ const method = {
         return this.changeNumberToString(number) + '' + st
     },
     listPaginationBtn(currentPage, showPage, maxPage) {
+
         let page = showPage < maxPage ? showPage : maxPage
         let rangePage = showPage % 2 == 0 ? showPage / 2 : (showPage - 1) / 2
         let arr = []
-        if (showPage - currentPage >= 0 || maxPage - currentPage < showPage) {
+        if (maxPage === 0) return [1]
+        if (maxPage >= currentPage && (showPage - currentPage >= 0 || maxPage - currentPage < showPage)) {
             if (showPage - currentPage >= 0) {
                 for (let i = 1; i <= page; i++) {
                     arr.push(i)
@@ -41,6 +41,11 @@ const method = {
                 }
             }
         }
+        // else if (maxPage < currentPage) {
+        //     for (let i = 1; i <= maxPage; i++) {
+        //         arr.push(i)
+        //     }
+        // }
         else {
             for (let i = 0; i < showPage; i++) {
                 arr.push(currentPage - rangePage + i)

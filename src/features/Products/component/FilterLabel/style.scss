@@ -1,0 +1,26 @@
+.filter__label {
+    width: 150px;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    background-color:red ;
+    margin-left: 10px;
+    position: relative;
+    color: #fff;
+    &.can-click{
+        cursor: pointer;
+    }
+    &.not-active{
+        background-color: gray;
+    }
+    p {
+        font-size: 13px;
+        line-height: 30px;
+    }
+    i{
+        position: absolute;
+        right: 2px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
