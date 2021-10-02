@@ -10,6 +10,7 @@ import './style.scss';
 import queryString from 'query-string';
 import FilterView from '../../component/FilterViewer';
 import { useHistory, useLocation } from 'react-router';
+import method from '../../../../constants/method';
 ProductPage.propTypes = {
 
 };
@@ -23,14 +24,14 @@ function ProductPage(props) {
     const location = useLocation()
     const filterParams = useMemo(() => {
         const seach = queryString.parse(location.search)
-        console.log(seach)
+        console.log(typeof (seach.isFreeShip  || seach.isFreeShip=== 'true'))
         const param = {
             ...seach,
             page: Number(seach.page) || 1,
             _limit: Number(seach._limit) || 9,
             _sort: seach._sort || 'salePrice:ASC',
-            isFreeShip:seach.isFreeShip==='true',
-            isPromotion:seach.isPromotion==='true',
+            isFreeShip: method.changeBoolearn(seach.isFreeShip),
+            isPromotion: method.changeBoolearn(seach.isPromotion),
         }
         return param
     }, [location.search])
@@ -69,7 +70,7 @@ function ProductPage(props) {
     }
     const filterShowChange = function (item) {
         // setfilterInfo(() => ({ ...item }))
-        const newFilter = { ...item,page:1 };
+        const newFilter = { ...item, page: 1 };
         history.push({
             pathname: history.location.pathname,
             search: queryString.stringify(newFilter)

@@ -30,8 +30,11 @@ const filterList = [
         isVisiable: (filter) => /* Object.keys(filter).includes('isPromotion') */Boolean(filter.isPromotion),
         isRemoveable: (filter) => true,
         onDelete: (filter) => {
-            const newFilter = { ...filter }
-            delete newFilter.isPromotion
+            const newFilter = {
+                ...filter,
+            }
+            if (newFilter.isPromotion)  newFilter.isPromotion=undefined
+            else newFilter.isPromotion=true
             return newFilter
         },
         onToggle: () => { },

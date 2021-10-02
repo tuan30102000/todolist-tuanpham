@@ -52,6 +52,11 @@ const method = {
             }
         }
         return arr
+    },
+    changeBoolearn(x) {
+        if (x === 'true') return true
+        if (x==='false') return false
+        if (x===undefined) return undefined
     }
 }
 
