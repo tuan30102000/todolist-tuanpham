@@ -18,7 +18,7 @@ export const productsApi = {
         }
     },
     get(id) {
-        const url = `/products/:${id}`
+        const url = `/products/${id}`
 
         return axiosClient.get(url)
     },

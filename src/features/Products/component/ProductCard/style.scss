@@ -1,11 +1,14 @@
 .product-card {
     width: 100%;
     position: relative;
-    background-color: #ffff;
+    background-color: #F0F2F5;
     // transform: 0.3s;
     overflow: hidden;
     border-radius: 15px;
     height: 100%;
+    padding: 0 10px;
+    padding-top: 10px;    
+    
 }
 .card__img-box {
     width: 100%;

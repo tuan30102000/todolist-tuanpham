@@ -24,7 +24,7 @@ function FilterByPriceRange(props) {
         salePrice_gte: 0
     })
     const form = useForm({
-        defaultValues:values,
+        defaultValues: values,
         resolver: yupResolver(schema)
     })
     // console.log(values)
@@ -37,13 +37,18 @@ function FilterByPriceRange(props) {
     return (
         <div className="filter__price">
             <form onSubmit={form.handleSubmit(submitFormFC)}>
-                <div className="">
-                    <label htmlFor="salePrice_gte">From</label>
-                    <input type='text' className='price__range' id='salePrice_gte' {...form.register('salePrice_gte', { shouldUnregister: true })} />
-                </div>
-                <div className="">
-                    <label htmlFor="salePrice_lte">to</label>
-                    <input type='text' className='price__range' id='salePrice_lte' {...form.register('salePrice_lte', { shouldUnregister: true })} />
+                <p className="price-title filter__title">
+                    Khoảng giá
+                </p>
+                <div className="price__form-group">
+                    <div className="form-group">
+                        <label htmlFor="salePrice_gte">From</label>
+                        <input type='text' className='price__range' id='salePrice_gte' {...form.register('salePrice_gte', { shouldUnregister: true })} />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="salePrice_lte">to</label>
+                        <input type='text' className='price__range' id='salePrice_lte' {...form.register('salePrice_lte', { shouldUnregister: true })} />
+                    </div>
                 </div>
                 <button>Apply</button>
             </form>

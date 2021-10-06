@@ -18,6 +18,9 @@ function FilterByService(props) {
     }
     return (
         <div className='filter__service' >
+        <p className="filter__title">
+            Dịch Vụ
+        </p>
             {serviceList.map((item, index) => (
                 <div key={index} className="service__group">
                     <label htmlFor={'sevice-' + item.name}>{item.content}</label>

@@ -1,16 +1,15 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { date } from 'yup';
+import queryString from 'query-string';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useHistory, useLocation } from 'react-router';
 import { productsApi } from '../../../../api/productsApi';
 import Loading from '../../../../Component/Loading';
+import method from '../../../../constants/method';
+import FilterView from '../../component/FilterViewer';
 import PaginationBtn from '../../component/PagiantionBtn';
+import ProductFilter from '../../component/ProductFilter/';
 import ProductList from '../../component/ProductList/';
 import ProductSort from '../../component/ProductSort';
-import ProductFilter from '../../component/ProductFilter/';
 import './style.scss';
-import queryString from 'query-string';
-import FilterView from '../../component/FilterViewer';
-import { useHistory, useLocation } from 'react-router';
-import method from '../../../../constants/method';
 ProductPage.propTypes = {
 
 };
@@ -24,7 +23,6 @@ function ProductPage(props) {
     const location = useLocation()
     const filterParams = useMemo(() => {
         const seach = queryString.parse(location.search)
-        console.log(typeof (seach.isFreeShip  || seach.isFreeShip=== 'true'))
         const param = {
             ...seach,
             page: Number(seach.page) || 1,

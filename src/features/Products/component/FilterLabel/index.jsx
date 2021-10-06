@@ -15,7 +15,7 @@ function FilterLabel({ content, isRemove, onRemove, onToggle,isActive }) {
         })}
             onClick={onToggle} >
             <p>{content}</p>
-            {!!isRemove && <div onClick={onRemove} ><i className="far fa-times-circle"></i></div>}
+            {!!isRemove && <div onClick={onRemove} ><i className="fal fa-times-circle"></i></div>}
         </div>
     );
 }

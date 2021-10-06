@@ -1,26 +1,30 @@
 .filter__label {
-    width: 150px;
-    height: 30px;
+    width: 100px;
+    height: 25px;
     border-radius: 20px;
-    text-align: center;
-    background-color:red ;
+    background-color: red;
     margin-left: 10px;
     position: relative;
     color: #fff;
-    &.can-click{
+    padding-left: 15px;
+    &.can-click {
         cursor: pointer;
+        text-align: center;
+        padding-left: 0;
     }
-    &.not-active{
+    &.not-active {
         background-color: gray;
     }
     p {
-        font-size: 13px;
-        line-height: 30px;
+        font-size: 8px;
+        line-height: 25px;
     }
-    i{
+    i {
+        font-size: 14px;
         position: absolute;
         right: 2px;
         top: 50%;
         transform: translateY(-50%);
+        cursor: pointer;
     }
 }

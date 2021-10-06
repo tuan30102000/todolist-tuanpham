@@ -10,6 +10,9 @@ function FilterByCategory(props) {
     const { categoryList,onChange } = props
     return (
         <div className='category__list'>
+        <p className="filter__title">
+            Danh Mục
+        </p>
             {categoryList.map(
                 (item)=>(
                     <div className={classNames({
