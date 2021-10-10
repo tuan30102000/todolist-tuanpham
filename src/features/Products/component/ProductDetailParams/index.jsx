@@ -1,13 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
+import { useDispatch } from 'react-redux';
 import method from '../../../../constants/method';
+import { addToCart } from '../../../Cart/cartSlice';
 import FormAddToCart from '../FormAddToCart';
+import './style.scss';
 ProductDetailParams.propTypes = {
 
 };
 
-function ProductDetailParams({ productInfo: { name, originalPrice, promotionPercent, salePrice, shortDescription } }) {
+function ProductDetailParams({ productInfo }) {
+    const { name, originalPrice, promotionPercent, salePrice, shortDescription,id } = productInfo
+    const dispatch=useDispatch()
+    const handleSubmit = (data) => {
+        // console.log(addToCart)
+        const action=addToCart({
+            ...data,productInfo,productId:id
+        })
+        dispatch(action)
+    }
     return (
         <div className='product-detail__infor'>
             <div className="product-infor__price-des">
@@ -19,7 +29,7 @@ function ProductDetailParams({ productInfo: { name, originalPrice, promotionPerc
                     {promotionPercent > 0 && <p className='product-detail__promotion-percent' >-{promotionPercent}%</p>}
                 </div>
             </div>
-            <FormAddToCart />
+            <FormAddToCart onSubmit={handleSubmit} />
         </div>
     );
 }

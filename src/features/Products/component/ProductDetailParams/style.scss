@@ -1,3 +1,30 @@
-.product-detail__infor{
+.product-detail__infor {
     flex: 6.16;
+}
+.product-detail__name{
+    margin-bottom: 5px;
+}
+.product-infor__price-des {
+    margin-bottom: 15px;
+}
+.product-detail__price-group {
+    margin-top: 10px;
+    display: flex;
+    p {
+        margin-right: 10px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+}
+.product-detail__sale-price{
+    font-size: 20px;
+}
+.product-detail__original-price{
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+.product-detail__promotion-percent{
+    font-size: 10px;
+    color: red;
 }

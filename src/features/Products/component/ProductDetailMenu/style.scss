@@ -1,0 +1,13 @@
+.product-detail__menu{
+    display: flex;
+    justify-content: center;
+    a{
+        margin: 5px 10px;
+        text-transform: capitalize;
+        font-size: 15px;
+        &.active{
+            color: red;
+            text-decoration: underline;
+        }
+    }
+}

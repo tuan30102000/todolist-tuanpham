@@ -1,27 +1,43 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
-import ProductPage from '../ProductPage';
-import { useRouteMatch } from 'react-router';
-import ProductThumbnail from '../../component/ProductThumbnail';
+import { Route, Switch, useRouteMatch } from 'react-router';
 import thumbnailDefault from '../../../../assets/image/thumbnail1.jpg';
-import ProductDetailParams from '../../component/ProductDetailParams';
-import useFetchProduct from '../../hook/useFetchProduct';
-import { ApiUrl } from '../../../../constants/ApiUrl';
 import Loading from '../../../../Component/Loading';
+import { ApiUrl } from '../../../../constants/ApiUrl';
+import ProductDetailMenu from '../../component/ProductDetailMenu';
+import ProductDetailParams from '../../component/ProductDetailParams';
+import ProductThumbnail from '../../component/ProductThumbnail';
+import ProductAdditional from '../../component/SubComponent/ProductAdditional';
+import ProductDescription from '../../component/SubComponent/ProductDescription';
+import ProductReview from '../../component/SubComponent/ProductReview';
+import useFetchProduct from '../../hook/useFetchProduct';
+import './style.scss';
 ProductDetailPage.propTypes = {
 
 };
 
 function ProductDetailPage(props) {
     const Math = useRouteMatch()
-    const { params: { productId } } = Math
+    // const history = useHistory()
+    const { url, params: { productId } } = Math
+    // const location = useLocation()
+    // console.log(location,history,Math)
     const { loading, productInfo } = useFetchProduct(productId)
+    console.log(productInfo)
     return (
         <div className='container__product-detail'>
-            <ProductThumbnail thumbnailUrl={productInfo.thumbnail ? ApiUrl.baseURL + productInfo.thumbnail.url : thumbnailDefault} />
-            <ProductDetailParams productInfo={productInfo} />
+            <div className="product-detail__box">
+                <ProductThumbnail thumbnailUrl={productInfo.thumbnail ? ApiUrl.baseURL + productInfo.thumbnail.url : thumbnailDefault} />
+                <ProductDetailParams productInfo={productInfo} />
+            </div>
+
             {!loading && <Loading />}
+            {/* <Redirect from={Math.url} exact to={`${Math.url}/description`} /> */}
+            <ProductDetailMenu />
+            <Switch >
+                <Route exact path={url}><ProductDescription description={productInfo.description} /></Route>
+                <Route path={url + '/additionalinfomation'}><ProductAdditional /></Route>
+                <Route path={url + '/reviews'}><ProductReview /></Route>
+            </Switch>
         </div>
     );
 }

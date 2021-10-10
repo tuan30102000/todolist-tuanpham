@@ -6,6 +6,7 @@ import {
 import './assets/font-awesome-pro-master/font-awesome-pro-master/font-awesome-pro-master/css/all.css';
 import './assets/style/style.scss';
 import Header from "./Component/Header";
+import Cart from "./features/Cart";
 import ShowDataFeatures from './features/Data';
 import FormFeature from './features/form';
 import ProductFeature from "./features/Products";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/data" component={ShowDataFeatures} />
           <Route path="/form" component={FormFeature} />
           <Route path="/products" component={ProductFeature} />
+          <Route path="/cart" component={Cart} />
           <Redirect from="/" to="/products" />
         </Switch>
         

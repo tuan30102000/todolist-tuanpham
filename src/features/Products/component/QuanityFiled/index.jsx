@@ -6,22 +6,26 @@ QuanityFiled.propTypes = {
 };
 
 function QuanityFiled({ form, nameFiled }) {
-    const { register, getValues, setValue, watch } = form
-    console.log(watch())
-    const handleChange = () => {
-        setValue(nameFiled, getValues(nameFiled) - 1)
+    const { register, getValues, setValue, formState: { touchedFields, errors } } = form
+    const hasErrors = !!errors[nameFiled]
+    const handleChange = (x) => {
+        if (x === '-') setValue(nameFiled, getValues(nameFiled) - 1 >= 0 ? getValues(nameFiled) - 1 : 0)
+        if (x === '+') setValue(nameFiled, getValues(nameFiled) + 1)
     }
+
     return (
         <div className='quantity-filed'>
-            <div onClick={() => { handleChange() }} className="btn plus">
-                <i className="fal fa-minus-circle"></i>
+            <div  onClick={() => { handleChange('-') }} className="btn plus">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg" alt="" />
             </div>
-            <input type="text" {...register(nameFiled, {
-            })} />
-            <div onClick={null} className="btn plus">
-                <i className="fal fa-plus-circle"></i>
+            <div className="input-box">
+                <input type="number" {...register(nameFiled, {
+                })} />
             </div>
-
+            <div onClick={() => { handleChange('+') }} className="btn plus">
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg" alt="" />
+            </div>
+            {hasErrors && <p>{errors[nameFiled]?.message}</p>}
         </div>
     );
 }

@@ -4,37 +4,33 @@ import './style.scss'
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import QuanityFiled from '../QuanityFiled';
+import * as yup from "yup";
 FormAddToCart.propTypes = {
 
 };
-function FormAddToCart(props) {
-    const [values, setvalues] = useState(1)
+const schema = yup.object().shape({
+    quantity: yup.number().positive('Số lượng sản phẩm phải là số nguyên dương').integer('Số lượng sản phẩm phải là số nguyên dương')
+})
+function FormAddToCart({ onSubmit }) {
     const form = useForm({
         defaultValues: {
             quantity: 1
-        }
+        },
+        resolver: yupResolver(schema)
     })
-    const {handleSubmit,}=form
-   
-    const handleChange = (value) => {
-        console.log(value)
-        if ((!isNaN(Number(value)) && value)) {
-            setvalues(parseInt(Number(value) ? value : 0))
-            console.log(1)
-        }
-        else {
-            setvalues(...[0])
-            console.log(2)
-        }
+    const { handleSubmit, } = form
 
-    }
-    const onSubmit = (data) => {
-        console.log(data)
+
+    const handleSubmitForm = (data) => {
+        onSubmit(data)
     }
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <QuanityFiled form={form} nameFiled='quantity'/>
-            <button className=''>Add to cart</button>
+        <form onSubmit={handleSubmit(handleSubmitForm)}>
+            <p className="form-title">
+                Số lượng
+            </p>
+            <QuanityFiled form={form} nameFiled='quantity' />
+            <button className='form__submit'>Add to cart</button>
         </form>
     );
 }
