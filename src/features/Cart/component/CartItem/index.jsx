@@ -4,6 +4,7 @@ import defaultImg from '../../../../assets/image/thumbnail1.jpg';
 import { ApiUrl } from '../../../../constants/ApiUrl';
 import { removeCart } from '../../cartSlice';
 import FormChangeQuantity from '../FormChangeQuantity';
+import method from '../../../../constants/method';
 import './style.scss';
 CartItem.propTypes = {
 
@@ -31,12 +32,12 @@ function CartItem({ product }) {
                 <button onClick={handleRemove}>xóa</button>
             </div>
             <div className="cart__item-price">
-                <span className="cart__item-sale-price">{salePrice}đ</span>
+                <span className="cart__item-sale-price">{method.changeNumberToString(salePrice)}đ</span>
                 {
 
                     promotionPercent > 0 &&
                     (<>
-                        <span className="cart__item-origanal-price">{originalPrice}đ</span>
+                        <span className="cart__item-origanal-price">{method.changeNumberToString(originalPrice)}đ</span>
                         <span className="cart__item-percent">-{promotionPercent}%</span>
 
                     </>)
@@ -49,7 +50,7 @@ function CartItem({ product }) {
 
             <p className="cart__item-total">
 
-                Thành tiền :    {quantity * salePrice}
+                Thành tiền :    {method.changeNumberToString(quantity * salePrice)}đ
             </p>
         </div>
     );

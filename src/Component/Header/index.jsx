@@ -15,10 +15,12 @@ function Header(props) {
     const [authState, setauthState] = useState('none')
     const userInfo = useSelector(state => state.user.current)
     const dispatch = useDispatch()
-    const handleLogout=()=>{
+    const handleLogout = () => {
         dispatch(logout())
     }
-
+    const listProductInCart = useSelector(state => state.cart.productCartList)
+    const countCart = listProductInCart.length
+    console.log(listProductInCart)
     let stateLogin = !userInfo.id
     const handleAuth = function (value = 'none') {
         setauthState(value)
@@ -28,10 +30,16 @@ function Header(props) {
             <div className="layout-box header-box">
                 <NavLink to='/' className='header__link logo'>Legacy</NavLink>
                 <div className="header__link-box">
-                    <NavLink className='header__link' to='/todo' >Todo</NavLink>
+                    <NavLink className='header__link header__cart-link' to='/cart' >
+                        <i className="fal fa-shopping-cart"></i>
+                        {countCart > 0 && !stateLogin &&
+                            <p className='header__count' >{countCart>=10?'9+':countCart}</p>
+
+                        }
+                    </NavLink>
+                    {/* <NavLink className='header__link' to='/todo' >Todo</NavLink> */}
                     {/* <NavLink className='header__link' to='/data' >Data</NavLink> */}
                     <NavLink className='header__link' to='/products' >Product</NavLink>
-                    <NavLink className='header__link' to='/cart' >Cart </NavLink>
                     {stateLogin && (<>
                         <div onClick={() => { handleAuth('register') }} className='header__link'>
                             Register
@@ -43,7 +51,7 @@ function Header(props) {
 
                     {!stateLogin && (
                         <>
-                            <div onClick={() => { handleLogout()}} className='header__link'>
+                            <div onClick={() => { handleLogout() }} className='header__link'>
                                 Logout
                             </div>
                             <div className='header__info'>
