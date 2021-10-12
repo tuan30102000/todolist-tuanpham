@@ -16,8 +16,7 @@ TodoPage.propTypes = {
 
 function TodoPage(props) {
 
-    let TodoListData = [
-    ]
+    
     let location = useLocation()
     let Math = useRouteMatch()
     let history = useHistory()
@@ -28,12 +27,12 @@ function TodoPage(props) {
     }
     const ListStateShowTodo = ['all', 'done', 'not-done']
     const [showTodoState, setshowTodoState] = useState(!queryString.parse(location.search).status ? 'all' : queryString.parse(location.search).status)
-    const [TodoData, setTodoData] = useState(TodoListData)
+    const [TodoData, setTodoData] = useState([])
     const NewDataShow = TodoData.filter((item, index) => showTodoState === 'all' || showTodoState === item.status)
 
     useEffect(() => {
-        TodoListData = !JSON.parse(localStorage.getItem('data')) ? [] : JSON.parse(localStorage.getItem('data'))
-        setTodoData(TodoListData)
+        // TodoListData = !JSON.parse(localStorage.getItem('data')) ? [] : JSON.parse(localStorage.getItem('data'))
+        setTodoData( !JSON.parse(localStorage.getItem('data')) ? [] : JSON.parse(localStorage.getItem('data')))
         return () => {
         }
     }, [])

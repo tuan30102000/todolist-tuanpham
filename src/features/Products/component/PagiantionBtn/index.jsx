@@ -20,7 +20,7 @@ function PaginationBtn(props) {
     return (
         <div className='pagination__btn-list'>
             <button
-                disabled={paginationInfo.page == 1}
+                disabled={paginationInfo.page === 1}
                 className='pagination__btn next'
                 onClick={() => filterFc(paginationInfo.page - 1)}>
                 <i className="fal fa-chevron-double-left"></i>
@@ -28,14 +28,14 @@ function PaginationBtn(props) {
             {ListBtn.map((item) => <button
                 key={item}
                 className={classNames({
-                    choose: item == paginationInfo.page,
+                    choose: item === paginationInfo.page,
                     'pagination__btn number': true
                 })}
                 onClick={() => { filterFc(item) }}>{item}
             </button>)}
             <button
                 className='pagination__btn next'
-                disabled={paginationInfo.page == Math.ceil(paginationInfo.total / paginationInfo._limit)}
+                disabled={paginationInfo.page === Math.ceil(paginationInfo.total / paginationInfo._limit)}
                 onClick={() => filterFc(paginationInfo.page + 1)}>
                 <i className="fal fa-chevron-double-right"></i>
             </button>

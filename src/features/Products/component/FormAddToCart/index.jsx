@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import QuanityFiled from '../QuanityFiled';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import * as yup from "yup";
+import QuanityFiled from '../QuanityFiled';
+import './style.scss';
 FormAddToCart.propTypes = {
 
 };

@@ -1,8 +1,6 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
 import FilterLabel from '../FilterLabel';
-import { boolean } from 'yup/lib/locale';
+import './style.scss';
 FilterView.propTypes = {
 
 };

@@ -99,7 +99,7 @@ function ProductPage(props) {
             search: queryString.stringify(filterParams)
         })
 
-    }, [])
+    }, [filterParams,history])
 
     return (
         <div className='container__product'>

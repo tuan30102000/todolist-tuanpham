@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
+import './style.scss';
 QuanityFiled.propTypes = {
 
 };
 
 function QuanityFiled({ form, nameFiled }) {
-    const { register, getValues, setValue, formState: { touchedFields, errors } } = form
+    const { register, getValues, setValue, formState: {  errors } } = form
     const hasErrors = !!errors[nameFiled]
     const handleChange = (x) => {
         if (x === '-') setValue(nameFiled, getValues(nameFiled) - 1 >= 0 ? getValues(nameFiled) - 1 : 0)

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
 import method from '../../../../constants/method';
+import './style.scss';
 ProductCard.propTypes = {
 
 };

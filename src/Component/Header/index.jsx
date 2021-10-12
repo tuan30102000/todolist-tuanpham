@@ -31,6 +31,7 @@ function Header(props) {
                     <NavLink className='header__link' to='/todo' >Todo</NavLink>
                     {/* <NavLink className='header__link' to='/data' >Data</NavLink> */}
                     <NavLink className='header__link' to='/products' >Product</NavLink>
+                    <NavLink className='header__link' to='/cart' >Cart </NavLink>
                     {stateLogin && (<>
                         <div onClick={() => { handleAuth('register') }} className='header__link'>
                             Register

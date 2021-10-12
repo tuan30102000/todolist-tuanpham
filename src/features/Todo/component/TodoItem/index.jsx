@@ -18,7 +18,7 @@ TodoItem.defaultProps = {
 };
 
 function TodoItem(props) {
-    const { TodoItemData, handleOnClick, index,handleDeleteData} = props
+    const { TodoItemData, handleOnClick,handleDeleteData} = props
 
     return (
         <li className={classNames(

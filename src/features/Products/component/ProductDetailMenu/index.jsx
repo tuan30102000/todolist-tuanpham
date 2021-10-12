@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
-import classnames from 'classnames'
 import { NavLink, useRouteMatch } from 'react-router-dom';
+import './style.scss';
 ProductDetailMenu.propTypes = {
 
 };

@@ -18,7 +18,7 @@ const cartSlice = createSlice({
             // const newState = [...state.productCartList]
             // let index = newState.findIndex(item => item.productId === action.payload.productId)
 
-            
+
             // if (index < 0) {
             //     newState.push(action.payload)
             // } else newState[index].quantity = newState[index].quantity + action.payload.quantity
@@ -26,18 +26,19 @@ const cartSlice = createSlice({
             // return state
             let index = state.productCartList.findIndex(item => item.productId === action.payload.productId)
 
-            
+
             if (index < 0) {
                 state.productCartList.push(action.payload)
-            } else state.productCartList[index].quantity +=   action.payload.quantity
+            } else state.productCartList[index].quantity += action.payload.quantity
         },
         removeCart(state, action) {
-            let index = state.productCartList.findIndex(item => item.productId === action.payload)
-            state.splice(index, 1)
+            state.productCartList = state.productCartList.filter((item) => {
+                return item.productId!=action.payload.productId
+            })
         },
         changeQuantity(state, action) {
             let index = state.productCartList.findIndex(item => item.productId === action.payload.productId)
-            state[index].quantity = action.payload.quantity
+            state.productCartList[index].quantity = action.payload.quantity
         },
     }
 

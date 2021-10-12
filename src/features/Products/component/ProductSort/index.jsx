@@ -1,7 +1,6 @@
+import classNames from 'classnames';
 import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames'
-import './style.scss'
+import './style.scss'; 
 ProductSort.propTypes = {
 
 };
@@ -13,12 +12,12 @@ function ProductSort(props) {
             <div onClick={() => { onChange('salePrice:ASC') }}
                 className={classNames({
                     "Sort__up-to": true,
-                    active: filterInfo._sort == 'salePrice:ASC'
+                    active: filterInfo._sort === 'salePrice:ASC'
                 })}> Từ thấp đến cao</div>
             <div onClick={() => { onChange('salePrice:DESC') }}
                 className={classNames({
                     "Sort__down-to": true,
-                    active: filterInfo._sort == 'salePrice:DESC'
+                    active: filterInfo._sort === 'salePrice:DESC'
                 })}>Từ cao đến thấp</div>
 
         </div>

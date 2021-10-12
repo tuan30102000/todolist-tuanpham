@@ -1,17 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './style.scss'
-import { totalQuantitySelector } from './selectors';
+import { useSelector } from 'react-redux';
+import CartPage from './page/CartPage';
+import './style.scss';
 Cart.propTypes = {
-    
+
 };
 
 function Cart(props) {
-    // console.log(totalQuantitySelector)
     return (
-        <div>
-            cart
-        </div>
+        <>
+            <CartPage />
+        </>
     );
 }
 

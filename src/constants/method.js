@@ -27,7 +27,7 @@ const method = {
     listPaginationBtn(currentPage, showPage, maxPage) {
 
         let page = showPage < maxPage ? showPage : maxPage
-        let rangePage = showPage % 2 == 0 ? showPage / 2 : (showPage - 1) / 2
+        let rangePage = showPage % 2 === 0 ? showPage / 2 : (showPage - 1) / 2
         let arr = []
         if (maxPage === 0) return [1]
         if (maxPage >= currentPage && (showPage - currentPage >= 0 || maxPage - currentPage < showPage)) {
